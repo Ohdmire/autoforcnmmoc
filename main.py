@@ -7,11 +7,10 @@ js = """
     """
 
 url="http://180.76.151.202"
-chromepath=r'C:\Program Files\Google\Chrome\Application\chrome.exe'
 
 async def main():
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False,executable_path=chromepath)
+        browser = await p.chromium.launch(headless=False,channel="msedge")
         context = await browser.new_context()
         page = await context.new_page()
         await page.goto(url)
