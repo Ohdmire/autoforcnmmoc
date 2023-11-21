@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "autoforcnmooc"
+version = "0.1.0"
+description = "A script automatically finishes watching video."
+authors = ["Ohdmire <1750011571@qq.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+playwright = "^1.39.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
