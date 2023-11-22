@@ -35,6 +35,5 @@ async def main():
                     print("视频已看完"+"\n"+text+"\n")
                     await page.go_back()
         input("程序执行完毕，按回车键退出")
-        browser.close()
 
 asyncio.run(main())
