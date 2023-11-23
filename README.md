@@ -1,2 +1,2 @@
 # autoforcnmmoc
-A script automatically finishes videos.
+A script automatically finishes videos and exams.
