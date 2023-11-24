@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Auto select answer for cnmooc
 // @namespace    https://github.com/Ohdmire/autoforcnmmoc
-// @updateURL    https://github.com/Ohdmire/autoforcnmmoc/blob/main/exam_main.js
-// @downloadURL  https://github.com/Ohdmire/autoforcnmmoc/blob/main/exam_main.js
+// @updateURL    https://raw.githubusercontent.com/Ohdmire/autoforcnmmoc/main/exam_main.js
+// @downloadURL  https://raw.githubusercontent.com/Ohdmire/autoforcnmmoc/main/exam_main.js
 // @version      0.9.9
 // @description  A script automatically finishes exams.
 // @author       Ohdmire
