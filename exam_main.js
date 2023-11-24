@@ -9,6 +9,7 @@
 // @match        http://180.76.151.202/study/*
 // @match        https://www.cnmooc.org/study/*
 // @grant        none
+// @connect      raw.githubusercontent.com
 // @require      https://raw.githubusercontent.com/wendux/ajax-hook/master/dist/ajaxhook.min.js
 // @license      MIT
 
