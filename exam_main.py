@@ -34,7 +34,7 @@ for (var i=0;i<answerlen;i++){
     if (is_single.indexOf("多选题") != -1){
         var rightanswerlist=rightanswers.split(' ');
         console.log(rightanswerlist);
-        for (n = 0; n < rightanswerlist.length; n++) {
+        for (var n = 0; n < rightanswerlist.length; n++) {
             var rightanswer=rightanswerlist[n];
 
             if (rightanswer=="A")
@@ -68,7 +68,7 @@ for (var i=0;i<answerlen;i++){
             }
     }
     else{
-        var rightanswer=rightanswers
+        rightanswer=rightanswers
         if (rightanswer=="A")
             {
                 document.getElementsByClassName("test-ana")[i].parentElement.getElementsByClassName("t-option")[0].getElementsByClassName("input-r")[0].click();

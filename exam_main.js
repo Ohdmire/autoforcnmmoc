@@ -1,11 +1,31 @@
-var answerlen=document.getElementsByClassName("test-ana").length;
+// ==UserScript==
+// @name         Auto select answer for cnmooc
+// @namespace    https://github.com/Ohdmire/autoforcnmmoc
+// @updateURL    https://github.com/Ohdmire/autoforcnmmoc/blob/main/exam_main.js
+// @version      0.9.9
+// @description  A script automatically finishes exams.
+// @author       Ohdmire
+// @match        http://180.76.151.202/study/*
+// @match        https://www.cnmooc.org/study/*
+// @grant        none
+// @require      https://raw.githubusercontent.com/wendux/ajax-hook/master/dist/ajaxhook.min.js
+// @license      MIT
+
+// ==/UserScript==
+
+(async function () {
+    let btn=document.createElement("button");
+    btn.innerHTML="一键选择答案";
+    btn.onclick=function(){
+    //code
+    var answerlen=document.getElementsByClassName("test-ana").length;
 for (var i=0;i<answerlen;i++){
     var rightanswers=document.getElementsByClassName("test-ana")[i].innerText.replace("参考答案：\n","");
     var is_single=document.getElementsByClassName("test-header")[i].innerText;
     if (is_single.indexOf("多选题") != -1){
         var rightanswerlist=rightanswers.split(' ');
         console.log(rightanswerlist);
-        for (n = 0; n < rightanswerlist.length; n++) {
+        for (var n = 0; n < rightanswerlist.length; n++) {
             var rightanswer=rightanswerlist[n];
 
             if (rightanswer=="A")
@@ -39,7 +59,7 @@ for (var i=0;i<answerlen;i++){
             }
     }
     else{
-        var rightanswer=rightanswers
+        rightanswer=rightanswers
         if (rightanswer=="A")
             {
                 document.getElementsByClassName("test-ana")[i].parentElement.getElementsByClassName("t-option")[0].getElementsByClassName("input-r")[0].click();
@@ -70,8 +90,32 @@ for (var i=0;i<answerlen;i++){
             }
     }
 
+};
+
 }
-       
+    var parent=document.querySelector(".learn-nav");
+    var old=document.querySelector(".btn-faq");
+    parent.replaceChild(btn,old);
+
+    ah.proxy({
+    //请求发起前进入
+    onRequest: (config, handler) => {
+        console.log(config.url)
+        handler.next(config);
+    },
+    //请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功
+    onError: (err, handler) => {
+        console.log(err.type)
+        handler.next(err)
+    },
+    //请求成功后进入
+    onResponse: (response, handler) => {
+        var res=response.response
+        response.response=res.replace("var answerReviewTypeFlag = (answerReviewType == 2 && submitFlag == 1);","var answerReviewTypeFlag = true")
+        console.log(response.response)
+        handler.next(response)
+    }
+})
 
 
-    
+})();
