@@ -21,19 +21,21 @@ async def main():
             html=await element.inner_html()
             text=await element.inner_text()
             if "icon-play-done" in html:
-                print("已完成"+text)
+                print('\n'+"已完成"+'\n'+text)
             else:
-                print("未完成"+text)
+                print('\n'+"未完成"+'\n'+text)
                 if "edit" in html:
-                    print("非视频"+text+"跳过")
+                    print("跳过非视频")
                 else:
-                    print("视频未看完，即将开始播放"+"\n"+text+"\n")
+                    print("视频未看完，即将开始播放")
                     await element.click()
                     await page.wait_for_selector('.jwvideo > video:nth-child(1)')
                     await page.evaluate(js)
                     await asyncio.sleep(1)
-                    print("视频已看完"+"\n"+text+"\n")
+                    print("视频已看完")
                     await page.go_back()
+        await page.reload()
         input("程序执行完毕，按回车键退出")
 
+print("请等待浏览器启动")
 asyncio.run(main())

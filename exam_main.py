@@ -120,13 +120,13 @@ async def main():
             html=await element.inner_html()
             text=await element.inner_text()
             if "icon-edit-done" in html:
-                print("已完成"+text)
+                print('\n'+"已完成"+'\n'+text)
             else:
-                print("未完成"+text)
+                print('\n'+"未完成"+'\n'+text)
                 if "play" in html:
-                    print("非练习"+text+"跳过")
+                    print("跳过非练习")
                 else:
-                    print("视频未看完，即将开始播放"+"\n"+text+"\n")
+                    print("练习未完成，即将开始练习")
                     await element.click()
                     await page.wait_for_selector('#enterObjectExamDiv')
                     #加载js
@@ -142,13 +142,15 @@ async def main():
                     await asyncio.sleep(1)
                     await page.click('#submit_exam')
                     if "未做" in await page.locator(".d-content").text_content():
-                        print("未做"+text+"跳过")
+                        print("!!!!!!跳过无法完成练习，请手动完成")
                         await page.go_back()
                         continue
                     else:
                         await page.locator(".d-button").get_by_text("坚持提交").click()
-                    print("练习已完成"+"\n"+text+"\n")
+                    print("练习已完成")
                     await page.go_back()
+        await page.reload()
         input("程序执行完毕，按回车键退出")
 
+print("请等待浏览器启动")
 asyncio.run(main())
