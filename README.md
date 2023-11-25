@@ -38,3 +38,7 @@ if you don't have the edge browser,please install the browser **before the step 
 ```bash
 playwright install
 ```
+
+# js
+also see my script in greasyfork
+- https://greasyfork.org/scripts/480670
