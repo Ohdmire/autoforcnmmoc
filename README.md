@@ -4,7 +4,7 @@ A script automatically finishes videos and exams.
 # Usage
 
 ## release(recommend)
-download the exe in [release page](/releases)
+download the exe in [release page](https://github.com/Ohdmire/autoforcnmmoc/releases/)
 
 ## source
 1. install Python，install poetry
