@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Auto select answer for cnmooc
+// @name         Auto select right answer for cnmooc
 // @namespace    https://github.com/Ohdmire/autoforcnmmoc
 // @updateURL    https://raw.githubusercontent.com/Ohdmire/autoforcnmmoc/main/exam_main.js
 // @downloadURL  https://raw.githubusercontent.com/Ohdmire/autoforcnmmoc/main/exam_main.js
